@@ -58,7 +58,7 @@ Install all the requirements:
 pip install -r requirements_dev.txt
 ```
 
-#### 4. Dependencies
+#### 4. Dependencies  
 
 *Metadata store (Aquarius).* Do one of the following:
 * Run Aquarius locally, see https://github.com/oceanprotocol/aquarius

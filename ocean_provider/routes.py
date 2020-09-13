@@ -345,7 +345,7 @@ def download():
         service_type = data.get('serviceType')
         signature = data.get('signature')
         tx_id = data.get("transferTxId")
-        validate_token_transfer(
+        transfer_event = validate_token_transfer(
             consumer_address,
             provider_wallet.address,
             token_address,
@@ -362,7 +362,7 @@ def download():
         content_type = file_attributes.get('contentType', None)
         url = get_asset_url_at_index(file_index, asset, provider_wallet)
 
-        download_url = get_download_url(url, app.config['CONFIG_FILE'])
+        download_url = get_download_url(url, app.config['CONFIG_FILE'], service, transfer_event.args)
         logger.info(f'Done processing consume request for asset {did}, '
                     f' url {download_url}')
         user_nonce.increment_nonce(consumer_address)

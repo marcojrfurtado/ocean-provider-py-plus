@@ -143,11 +143,11 @@ def get_asset_download_urls(asset, wallet, config_file):
             for url in get_asset_urls(asset, wallet)]
 
 
-def get_download_url(url, config_file):
+def get_download_url(url, config_file, service, transfer_event_args):
     try:
         logger.info('Connecting through Osmosis to generate the signed url.')
         osm = Osmosis(url, config_file)
-        download_url = osm.data_plugin.generate_url(url)
+        download_url = osm.data_plugin.generate_url(url, service, transfer_event_args)
         logger.debug(f'Osmosis generated the url: {download_url}')
         return download_url
     except Exception as e:
@@ -199,7 +199,7 @@ def validate_token_transfer(sender, receiver, token_address, num_tokens, tx_id):
             f'The transfered number of data tokens {transfer_event.args.value} does not match '
             f'the expected amount of {num_tokens} tokens')
 
-    return True
+    return transfer_event
 
 
 def validate_transfer_not_used_for_other_service(did, service_id, transfer_tx_id, consumer_address, token_address):

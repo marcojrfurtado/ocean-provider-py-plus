@@ -290,7 +290,6 @@ def initialize():
         )
         return jsonify(error=e), 500
 
-
 @services.route('/download', methods=['GET'])
 def download():
     """Allows download of asset data file.
@@ -333,6 +332,18 @@ def download():
       500:
         description: Error
     """
+    return asset_access(request, lambda req, session, url, download_url,
+                               content_type: build_download_response(req, session, url, content_type))
+
+
+@services.route('/assetUrl', methods=['GET'])
+def asset_url():
+    return asset_access(request, lambda req, session,
+                                        url, download_url,
+                                        content_type: Response(download_url, 200, content_type='text/plain'))
+
+
+def asset_access(request, action):
     data = get_request_data(request)
     try:
         asset, service, did, consumer_address, token_address = process_consume_request(
@@ -366,7 +377,7 @@ def download():
         logger.info(f'Done processing consume request for asset {did}, '
                     f' url {download_url}')
         user_nonce.increment_nonce(consumer_address)
-        return build_download_response(request, requests_session, url, download_url, content_type)
+        return action(request, requests_session, url, download_url, content_type)
 
     except InvalidSignatureError as e:
         msg = f'Consumer signature failed verification: {e}'

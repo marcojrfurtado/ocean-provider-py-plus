@@ -55,7 +55,7 @@ dev_requirements = [
 ]
 
 setup(
-    author="leucothia",
+    author="marcojrfurtado",
     author_email='devops@oceanprotocol.com',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -74,8 +74,8 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    keywords='ocean-provider',
-    name='ocean-provider',
+    keywords='ocean-provider-plus',
+    name='ocean-provider-plus',
     packages=find_packages(include=['ocean_provider', 'ocean_provider.utils', 'ocean_provider.app']),
     setup_requires=setup_requirements,
     test_suite='tests',

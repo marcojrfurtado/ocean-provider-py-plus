@@ -148,11 +148,11 @@ def get_asset_download_urls(asset, wallet, config_file):
             for url in get_asset_urls(asset, wallet)]
 
 
-def get_download_url(url, config_file):
+def get_download_url(url, config_file, service, transfer_event_args):
     try:
         logger.info('Connecting through Osmosis to generate the signed url.')
         osm = Osmosis(url, config_file)
-        download_url = osm.data_plugin.generate_url(url)
+        download_url = osm.data_plugin.generate_url(url, service, transfer_event_args)
         logger.debug(f'Osmosis generated the url: {download_url}')
         return download_url
     except Exception as e:

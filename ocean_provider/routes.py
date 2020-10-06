@@ -289,7 +289,7 @@ def download():
     return asset_access(request, lambda req, session, url, download_url,
                                content_type: build_download_response(req, session, url, content_type))
 
-def asset_access(request, action)
+def asset_access(request, action):
     """Allows download of asset data file.
 
     ---

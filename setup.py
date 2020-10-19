@@ -55,7 +55,7 @@ dev_requirements = [
 ]
 
 setup(
-    author="leucothia",
+    author="marcojrfurtado",
     author_email='devops@oceanprotocol.com',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -75,12 +75,12 @@ setup(
     long_description_content_type="text/markdown",
     include_package_data=True,
     keywords='ocean-provider',
-    name='ocean-provider',
+    name='ocean-provider-py-plus',
     packages=find_packages(include=['ocean_provider', 'ocean_provider.utils', 'ocean_provider.app']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/oceanprotocol/provider-py',
-    version='0.3.2',
+    version='0.3.3',
     zip_safe=False,
 )

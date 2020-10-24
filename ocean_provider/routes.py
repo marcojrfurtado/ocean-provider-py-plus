@@ -363,7 +363,7 @@ def asset_access(request, action):
         content_type = file_attributes.get('contentType', None)
         url = get_asset_url_at_index(file_index, asset, provider_wallet)
 
-        download_url = get_download_url(url, app.config['CONFIG_FILE'], service, _transfer_log)
+        download_url = get_download_url(url, app.config['CONFIG_FILE'], service, _transfer_log.args)
         logger.info(f'Done processing consume request for asset {did}, '
                     f' url {download_url}')
         user_nonce.increment_nonce(consumer_address)

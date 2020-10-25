@@ -24,7 +24,7 @@ install_requirements = [
     'gunicorn==20.0.4',
     'osmosis-driver-interface==0.1.0',
     'osmosis-on-premise-driver==0.1.0',
-    'osmosis-streaming-driver>=0.0.6',
+    'osmosis-streaming-driver>=0.0.7',
     'Werkzeug>=0.15.3',
     'ocean-lib>=0.4.8',
     'requests_testadapter',
@@ -81,6 +81,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/oceanprotocol/provider-py',
-    version='0.3.5',
+    version='0.3.6',
     zip_safe=False,
 )

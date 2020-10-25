@@ -24,7 +24,7 @@ install_requirements = [
     'gunicorn==20.0.4',
     'osmosis-driver-interface==0.1.0',
     'osmosis-on-premise-driver==0.1.0',
-    'osmosis-streaming-driver>=0.0.3',
+    'osmosis-streaming-driver>=0.0.5',
     'Werkzeug>=0.15.3',
     'ocean-lib>=0.4.8',
     'requests_testadapter',
